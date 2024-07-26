@@ -1,0 +1,60 @@
+﻿@model UserProfile
+
+@{
+    ViewData["Title"] = "J. Doe profile page";
+}
+
+<h1>Profile Page</h1>
+
+<div class="tables-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>User Profile</th>
+                <th></th> @*Empty *@
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.UserProfileId)</td>
+                <td>@Model.UserProfileId</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.FullName)</td>
+                <td>@Model.FullName</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Email)</td>
+                <td><a href="mailto:@Model.Email">@Model.Email</a></td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.PhoneNumber)</td>
+                <td><a href="tel:@Model.PhoneNumber">@Model.PhoneNumber</a></td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.ImageUrl)</td>
+                <td><img src="@Model.ImageUrl" alt="Temporary 150 img" /></td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.GitHubUrl)</td>
+                <td><a target="_blank" href="@Model.GitHubUrl">My GitHub Profile</a></td>
+            </tr>>
+        </tbody>
+
+        <thead>
+            <tr>
+                <th>Skilled Languages</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @foreach (string languageSkill in Model.SkilledLanguages)
+                    {
+                    <li>@languageSkill</li>
+                    }
+                </td>
+            </tr>
+        </tbody
+    </table>
+</div>
